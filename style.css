@@ -1,0 +1,299 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+#wrapper {
+  height: 100vh;
+  /* width: 100vw; */
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  /* scrolling smooth hogi */
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto; /*esse container center me aayega*/
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.logo {
+  height: 60px;
+}
+.logo_text {
+  font-size: 45px;
+}
+.logo_container {
+  display: flex;
+  justify-content: baseline;
+  align-items: end;
+}
+.nav-items {
+  display: flex;
+  align-items: end;
+  gap: 2rem;
+  padding: 0 4rem;
+}
+a {
+  text-decoration: none;
+  /* esse jo bhi text anchor tag ke ander he uska blue underline hat jayega */
+}
+.nav-items div a {
+  color: black;
+}
+.nav-items div {
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer; /*esse projects,skills,contact me ke upper hover krne se cursor pointer change ho jata hai*/
+}
+.nav-items div:hover {
+  font-weight: bold;
+  /* font-size: 22px; */
+  transition-duration: 0.8s;
+}
+
+/* hero section */
+
+.hero_section {
+  position: relative;
+  /* so that other images can float over it */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* designing */
+  gap: 5rem;
+  margin: 4rem auto;
+  padding: 0 1rem;
+  padding-bottom: 8rem;
+  /* design ends */
+}
+.hero_sec_left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+.hero_sec_heading {
+  font-size: 35px;
+  color: #343d68;
+  font-weight: 500;
+}
+.hero_sec_subheading {
+  font-size: 45px;
+  line-height: 45px;
+}
+.fadded_text {
+  user-select: none;
+  /* so that no one can select this text(wo blue highlight) */
+  font-size: 7rem;
+  color: rgb(230, 230, 230);
+  bottom: -16%;
+  left: 2%;
+  font-weight: bold;
+  transition: all 3s;
+}
+.about {
+  margin-top: 1rem;
+  width: 70%;
+  font-weight: 500;
+}
+.button {
+  background-color: orangered;
+  padding: 0.8rem 2.3rem;
+  text-align: center;
+  color: white;
+  width: 30%;
+  font-size: 20px;
+  box-shadow: 5px 5px 7px black;
+  position: relative;
+  transition: all 1s;
+  /* this to create zoom effect while hovering */
+}
+#text {
+  z-index: 1;
+  /* so text will reamain at top, while black transition occures */
+}
+.button:hover {
+  color: black;
+  border: none;
+  transform: scale(1.15);
+  /* transition: 1s; */
+}
+/* before psudo selector se hm button ke content ke phele kuch daal skte hai ,
+  if use after then abcd will be written after hire me*/
+.button::before {
+  /* content: "abcd"; */
+  /* sliding black color ka */
+  content: "";
+  /* this content is important to write */
+  background-color: white;
+  border: none;
+  position: absolute;
+  /* ye black sliding button ke red color ke upper hoga 
+    therefore button is relative and this before is absolute so that it can come
+    over it, i.e uske upper */
+  /* now filling this in whole button */
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transform-origin: left center;
+  transform: scaleX(0);
+  /* starting me to pura chipa rhega, hover krne se slide hoga black color */
+  transition: 1s;
+  z-index: -1;
+}
+.button:hover::before {
+  transform: scaleX(1);
+}
+
+/* hero section right */
+
+.hero_sec_right {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.user_img {
+  padding: 2.5rem;
+  /* white border ->pading */
+  filter: grayscale(1);
+  transition: all 1s;
+  animation: scaleimg 5s linear infinite;
+}
+.user_img img {
+  z-index: -1;
+}
+@keyframes scaleimg {
+  0% {
+    filter: grayscale(1);
+    transform: scale(1);
+  }
+  25% {
+    filter: grayscale(0.5);
+    /* transform: scale(1.02); */
+    box-shadow: 3px 3px 10px black;
+  }
+  50% {
+    transform: scale(1.1);
+    filter: grayscale(0);
+    box-shadow: 3px 3px 10px black;
+  }
+  /* 75% {
+    transform: scale(1.1);
+    filter: grayscale(0);
+    box-shadow: 3px 3px 10px black;
+  } */
+  100% {
+    transform: scale(1);
+    filter: grayscale(0);
+  }
+}
+.dots {
+  z-index: 1;
+  bottom: -1rem;
+  right: 0;
+  animation-name: dotanimation;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+@keyframes dotanimation {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.cube {
+  z-index: 1;
+  top: -0.8rem;
+  right: 1em;
+  animation-name: cuberotate;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+@keyframes cuberotate {
+  0% {
+    transform: rotateY(0deg) translateY(0px);
+  }
+  50% {
+    transform: rotateY(180deg) translateY(15px);
+  }
+  100% {
+    transform: rotateY(360deg) translateY(0px);
+  }
+}
+.circle {
+  z-index: 1;
+  bottom: -1rem;
+  left: 0;
+  animation: circleanime 3s linear infinite;
+}
+@keyframes circleanime {
+  0% {
+    bottom: -1rem;
+    left: 0;
+  }
+  50% {
+    bottom: 1%;
+    left: 5%;
+  }
+  100% {
+    bottom: -1rem;
+    left: 0;
+  }
+}
+.zigzak {
+  z-index: 1;
+  top: 0;
+  left: 0;
+  animation: leftandright 3s linear infinite;
+}
+@keyframes leftandright {
+  0% {
+    left: 0;
+  }
+  50% {
+    top: -1%;
+    left: 6%;
+  }
+  100% {
+    left: 0;
+  }
+}
+.plus {
+  z-index: 1;
+  top: 0;
+  left: 50%;
+  animation: plusanime 3s linear infinite;
+}
+@keyframes plusanime {
+  0% {
+    top: 0;
+    left: 50%;
+  }
+  50% {
+    top: 2%;
+    left: 49%;
+  }
+  100% {
+    top: 0;
+    left: 50%;
+  }
+}
+#user_image {
+  height: 400px;
+  width: 390px;
+}

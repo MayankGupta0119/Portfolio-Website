@@ -1,0 +1,78 @@
+.skills_container {
+  position: relative;
+  display: flex;
+  padding: 5rem;
+  margin: 10rem auto;
+  gap: 30px;
+}
+.skill_sec_left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.skill_sec_right {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  /* note:
+  if we use gap with rem--> we will get spacing between rows as well cols
+  but if we use gap with % --> we will get spacing between only rows; */
+  position: relative;
+  /* eski position relative and icons ki absolute */
+  justify-content: center;
+}
+.skill_fadded_text {
+  position: absolute;
+  font-size: 15em;
+  font-style: bold;
+  color: rgb(230, 230, 230);
+  bottom: -34.5%;
+  right: -28%;
+  user-select: none;
+}
+.blob {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* above three lines are used to write to put item in center */
+  animation: bolbanime 3s linear infinite;
+}
+@keyframes bolbanime {
+  50% {
+    top: 45%;
+    left: 55%;
+  }
+}
+.skills_logo {
+  z-index: 1;
+  width: 90px;
+  transition: transform 0.3s;
+}
+.skills_logo:hover {
+  transform: scale(1.2);
+}
+.skill_heading {
+  font-style: bold;
+  line-height: 50px;
+  /* line height for spacing between lines or rows */
+  font-size: 50px;
+  color: var(--borange);
+}
+.capital {
+  font-size: 80px;
+}
+.skill_subheading {
+  margin-top: 1rem;
+  width: 85%;
+  /* so that it will only occupy the 85% of total width of skill_subheading box */
+  text-align: justify;
+  /* justify se , puri available width jo ki yaha 85% of parent box ko occupy krega */
+  /* font-size: 30px; */
+}
+.skill_subheading p {
+  margin: 15px 0;
+  /* this means top se 15px and bottom se 0px, else only 15px likhne se charo side se margin lgegi */
+}

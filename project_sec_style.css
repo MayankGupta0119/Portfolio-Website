@@ -1,0 +1,178 @@
+:root {
+  --borange: #e84949;
+  /* global variable */
+}
+.project_section {
+  background-color: rgb(230, 230, 230);
+  margin-top: 8rem;
+}
+.page_header {
+  color: var(--borange);
+  font-size: 90px;
+  text-align: center;
+  padding-top: 30px;
+}
+.project_container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+.project_card {
+  width: 90%;
+  height: 550px;
+  background-image: url(./projects/Project2.png);
+  background-size: cover;
+  /* esse image container pe fit hojayega */
+  position: relative;
+  /* so that baki content eske upper aaye */
+  box-shadow: 0px 0px 40px black;
+}
+.project_card::after {
+  /* since tinted layer ko content ke upper place krna tha
+    esliye we use after, i.e. it will be placed after the main content
+    if we use before then the layer is applied below the content */
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  /* esse ye pure container me lgega */
+  background-color: #1f1f1f9a;
+  transform: scaleX(1);
+  z-index: 0;
+}
+.project_card::before {
+  /* ye content ke niche aayega */
+  content: "";
+  position: absolute;
+  /* so that is overlaps */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: linear-gradient(45deg, #343d68, #343d68be, #343d687c);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: all 0.4s;
+  z-index: 1;
+  /* since before, after wale ke upper hai */
+}
+.project_card:hover::before {
+  transform: scaleX(1);
+}
+.project_num {
+  color: white;
+  position: absolute;
+  font-weight: 600;
+  font-size: 200px;
+  z-index: 2;
+  display: none;
+  /* or */
+  /* opacity: 0; */
+}
+.project_card:hover .project_num {
+  /* jab tum project card pe hover kroge fir usme project_num me effect aayega */
+  display: block;
+  /* or */
+  /* opacity: 1; */
+  /* block se visible hojayega, 
+  we can also use opacity */
+}
+/* ek class bnai project_num_right or esko project_num me add krdiya taki
+1 and 3 me right wala and 2 and 4 me jo left me hai usme project_num_left wala property 
+lga ske */
+.project_num_right {
+  right: 0;
+  top: 0;
+}
+.project_num_left {
+  top: 0;
+  left: 0;
+}
+.project_content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 2rem;
+  z-index: 4;
+  gap: 1rem;
+  bottom: 20%;
+  /* bottom se 20% upper aagya */
+  transition: all 0.4s;
+}
+.project_content_left {
+  left: 10%;
+}
+.project_content_right {
+  right: -10%;
+}
+.project_skills_container {
+  max-width: 60%;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.project_skill {
+  width: 40px;
+}
+.project_heading {
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 3rem;
+}
+.project_subheading {
+  max-width: 70%;
+  font-size: 19px;
+  font-style: italic;
+}
+.btn_group {
+  display: flex;
+  gap: 0.9rem;
+  align-items: center;
+}
+.btn-project:hover {
+  border: none;
+  /* esse hire me pe hover krne se border nhi bnega */
+}
+.icon {
+  cursor: pointer;
+  color: white;
+  font-size: 35px;
+  transition: color 0.4s;
+  /* we can also use this transition property insie hover, but
+  it will only applied to hover effect, if we add some new effect for that too we have
+  write in it,so better to write inside the object to which we are applying the effect */
+}
+.icon:hover {
+  color: var(--borange);
+}
+.project_card:hover .project_content {
+  /* if i only write .project_content:hover then while scroling
+    over card at edges the content will not scale up, if we go inside and touch the box of content then only
+    they scale, but if we want that when we hover over card box the content should scale up, so for that we need to 
+    select first project_card:hover --> project_content, therefore as soon as we touch the card area our content area gets scaled up */
+  transform: scale(1.1);
+}
+/* updating project images */
+#project1 {
+  background-image: url(projects/s1.png);
+}
+#project2 {
+  background-image: url(projects/Project2.png);
+  margin-left: 120px;
+  /* since container ka width 90 percent tha or uske parent ka width 1200px
+  therefore ye jo card ka parent ne 1200 ka 90 percent consume kiya left 10 percent i.e. 120px left
+  which we use to shift these cards to left */
+}
+#project3 {
+  background-image: url(projects/Project3.png);
+}
+#project4 {
+  background-image: url(projects/Project4.png);
+  margin-left: 120px;
+}

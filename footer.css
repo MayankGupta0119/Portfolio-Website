@@ -1,0 +1,38 @@
+footer {
+  position: relative;
+  background-color: #343d68;
+  padding: 5rem;
+}
+.footer_wrapper {
+  display: flex;
+  gap: 1rem;
+  padding: 1.2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer_fadded_text {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: #535c87;
+  user-select: none;
+  font-size: 5em;
+}
+.link_wrapper {
+  display: flex;
+  gap: 1.2rem;
+}
+.link_wrapper a {
+  color: white;
+  font-size: 28px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.link_wrapper div a:hover {
+  color: var(--borange);
+  text-decoration: none;
+}
+.icon_wrapper {
+  display: flex;
+  gap: 1rem;
+}
